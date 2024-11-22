@@ -22,6 +22,7 @@ import type {Transform} from '@dnd-kit/utilities';
 import {
   Action,
   PublicContext,
+  GetPublicContext,
   InternalContext,
   PublicContextDescriptor,
   InternalContextDescriptor,
@@ -663,6 +664,10 @@ export const DndContext = memo(function DndContext({
     windowRect,
   ]);
 
+  const publicContextRef = useRef(publicContext);
+  publicContextRef.current = publicContext;
+  const getPublicContext = useCallback(() => publicContextRef.current, []);
+
   const internalContext = useMemo(() => {
     const context: InternalContextDescriptor = {
       activatorEvent,
@@ -695,9 +700,11 @@ export const DndContext = memo(function DndContext({
     <DndMonitorContext.Provider value={registerMonitorListener}>
       <InternalContext.Provider value={internalContext}>
         <PublicContext.Provider value={publicContext}>
-          <ActiveDraggableContext.Provider value={transform}>
-            {children}
-          </ActiveDraggableContext.Provider>
+          <GetPublicContext.Provider value={getPublicContext}>
+            <ActiveDraggableContext.Provider value={transform}>
+              {children}
+            </ActiveDraggableContext.Provider>
+          </GetPublicContext.Provider>
         </PublicContext.Provider>
         <RestoreFocus disabled={accessibility?.restoreFocus === false} />
       </InternalContext.Provider>

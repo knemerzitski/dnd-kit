@@ -49,6 +49,9 @@ export const InternalContext = createContext<InternalContextDescriptor>(
   defaultInternalContext
 );
 
-export const PublicContext = createContext<PublicContextDescriptor>(
-  defaultPublicContext
+export const PublicContext =
+  createContext<PublicContextDescriptor>(defaultPublicContext);
+
+export const GetPublicContext = createContext<() => PublicContextDescriptor>(
+  () => defaultPublicContext
 );

@@ -6,6 +6,8 @@ export type {
 } from './useDraggable';
 export {useDndContext} from './useDndContext';
 export type {UseDndContextReturnValue} from './useDndContext';
+export {useGetDndContext} from './useGetDndContext';
+export type {UseGetDndContextReturnValue} from './useGetDndContext';
 export {useDroppable} from './useDroppable';
 export type {UseDroppableArguments} from './useDroppable';
 

@@ -31,6 +31,7 @@ export {
   TraversalOrder,
   useDraggable,
   useDndContext,
+  useGetDndContext,
   useDroppable,
 } from './hooks';
 export type {
@@ -39,6 +40,7 @@ export type {
   DraggableSyntheticListeners,
   DroppableMeasuring,
   UseDndContextReturnValue,
+  UseGetDndContextReturnValue,
   UseDraggableArguments,
   UseDroppableArguments,
 } from './hooks';

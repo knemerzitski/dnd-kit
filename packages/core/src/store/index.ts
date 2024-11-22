@@ -1,6 +1,7 @@
 export {Action} from './actions';
 export {
   PublicContext,
+  GetPublicContext,
   InternalContext,
   defaultInternalContext,
 } from './context';
